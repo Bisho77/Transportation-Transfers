@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Owner Admin — Transportation &amp; Transfers</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1f3d'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='34' font-weight='bold' fill='%23e8a33d' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">T</span>
+      <span class="logo-text">
+        <span class="name">Transportation &amp; Transfers</span><br>
+        <span class="tag">Owner Admin Panel</span>
+      </span>
+    </a>
+    <a class="btn btn-gold btn-sm" href="index.html">← Back to website</a>
+  </div>
+</header>
+
+<main class="admin-shell">
+  <div class="container">
+    <div class="admin-header">
+      <h1>Settings &amp; rates</h1>
+      <span style="color:var(--muted);font-size:.88rem">Everything you can change yourself — fares, extras, fixed routes, contact details. Changes apply to the website instantly.</span>
+    </div>
+
+    <div class="admin-grid">
+
+      <!-- Business details -->
+      <div class="panel">
+        <h3>🏢 Business &amp; contact details</h3>
+        <div class="field"><label>Business name</label><input id="biz-name" type="text"></div>
+        <div class="field"><label>Phone (display)</label><input id="biz-phone-display" type="text"></div>
+        <div class="field"><label>Phone (dial format)</label><input id="biz-phone-tel" type="text" placeholder="+614xxxxxxxx"></div>
+        <div class="field"><label>WhatsApp number (international digits only)</label><input id="biz-whatsapp" type="text" placeholder="614xxxxxxxx"></div>
+        <div class="field"><label>Bookings email</label><input id="biz-email" type="email"></div>
+        <div class="field"><label>ABN</label><input id="biz-abn" type="text"></div>
+        <div class="field"><label>Online deposit (%)</label><input id="biz-deposit" type="number" min="0" max="100" step="1"></div>
+      </div>
+
+      <!-- Night surcharge -->
+      <div class="panel">
+        <h3>🌙 Late-night surcharge</h3>
+        <p style="color:var(--muted);font-size:.86rem;margin-bottom:12px">Automatically added to the metered fare for pick-ups inside this window. Set % to 0 to disable.</p>
+        <div class="admin-grid" style="gap:10px">
+          <div class="field"><label>From</label><input id="night-start" type="time"></div>
+          <div class="field"><label>Until</label><input id="night-end" type="time"></div>
+        </div>
+        <div class="field"><label>Surcharge (%)</label><input id="night-pct" type="number" min="0" max="100" step="0.5"></div>
+
+        <h3 style="margin-top:22px">🧾 GST</h3>
+        <p style="color:var(--muted);font-size:.86rem">All fares are treated as GST-inclusive (10%). The website automatically shows the GST component on every quote and booking confirmation.</p>
+      </div>
+
+      <!-- Vehicle rates -->
+      <div class="panel" style="grid-column:1/-1">
+        <h3>🚗 Vehicle rates (taxi-meter rules)</h3>
+        <p style="color:var(--muted);font-size:.86rem;margin-bottom:14px">
+          Metered fare = flagfall + (per-km × distance) + (per-min × travel time), never below the minimum fare.
+          Fixed fares (below) override the meter on matching routes.
+        </p>
+        <table class="admin-table" id="vehicle-table">
+          <thead><tr><th>Vehicle</th><th>Seats</th><th>Bags</th><th>Flagfall $</th><th>Per km $</th><th>Per min $</th><th>Min fare $</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Extras -->
+      <div class="panel">
+        <h3>➕ Extras &amp; charges</h3>
+        <p style="color:var(--muted);font-size:.86rem;margin-bottom:14px">Child seats, tolls and other charges customers can add when booking.</p>
+        <table class="admin-table" id="extras-table">
+          <thead><tr><th>Label</th><th>Unit</th><th>Price $</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <button class="btn btn-outline btn-sm" id="add-extra" style="margin-top:10px">+ Add extra</button>
+      </div>
+
+      <!-- Fixed fares -->
+      <div class="panel">
+        <h3>✈️ Fixed fares (airport &amp; popular routes)</h3>
+        <p style="color:var(--muted);font-size:.86rem;margin-bottom:14px">When a customer books one of these routes, the fixed price is quoted instead of the meter — in both vehicle classes.</p>
+        <table class="admin-table" id="fixed-table">
+          <thead><tr><th>From</th><th>To</th><th>Standard $</th><th>Premium $</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <button class="btn btn-outline btn-sm" id="add-fixed" style="margin-top:10px">+ Add fixed fare</button>
+      </div>
+
+      <!-- Bookings -->
+      <div class="panel" style="grid-column:1/-1">
+        <h3>📥 Bookings received</h3>
+        <p style="color:var(--muted);font-size:.86rem;margin-bottom:14px">
+          Every booking a customer makes on the website is stored in the site's database and listed here — from any device you open this panel on.
+          In production, each booking also arrives by email + WhatsApp automatically (with reminders before pick-up).
+        </p>
+        <div style="overflow-x:auto">
+          <table class="admin-table" id="bookings-table">
+            <thead><tr><th>Ref</th><th>When</th><th>Customer</th><th>Route</th><th>Vehicle</th><th>Total</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Data -->
+      <div class="panel" style="grid-column:1/-1">
+        <h3>💾 Backup &amp; restore</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-outline btn-sm" id="export-cfg">Export settings (JSON)</button>
+          <label class="btn btn-outline btn-sm" style="cursor:pointer">Import settings<input type="file" id="import-cfg" accept=".json" style="display:none"></label>
+          <button class="btn btn-sm" id="reset-cfg" style="background:#fdecec;color:var(--red)">Reset to defaults</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="save-bar">
+      <button class="btn btn-gold btn-lg" id="save-all">💾 Save all changes</button>
+      <span id="db-badge" style="align-self:center;font-size:.85rem;font-weight:700;color:var(--muted)">Database: checking…</span>
+      <span id="save-note" style="align-self:center;color:var(--muted);font-size:.85rem"></span>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/core.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>

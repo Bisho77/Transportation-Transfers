@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transportation &amp; Transfers | Brisbane &amp; Gold Coast Airport Transfers, Private Rides &amp; Tours</title>
+<meta name="description" content="Transportation &amp; Transfers provides reliable airport transfers, private rides and tours across Brisbane and the Gold Coast. Get an instant fare estimate, choose a standard SUV or premium Mercedes Vito 8-seater, and book online in under a minute. GST included, fixed airport fares, child seats available.">
+<meta name="keywords" content="Brisbane airport transfers, Gold Coast airport transfers, Brisbane taxi, private chauffeur Brisbane, Gold Coast private transfers, Brisbane to Gold Coast transfer, Coolangatta airport transfer, Brisbane private rides, Brisbane tours">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.example.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Transportation &amp; Transfers — Brisbane &amp; Gold Coast Airport Transfers">
+<meta property="og:description" content="Instant fare estimates, fixed airport fares, standard SUV or premium 8-seater. Book your Brisbane or Gold Coast transfer online.">
+<meta property="og:image" content="assets/img/hero.jpg">
+<meta name="theme-color" content="#0e1f3d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1f3d'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='34' font-weight='bold' fill='%23e8a33d' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" onerror="this.remove()">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TaxiService",
+  "name": "Transportation & Transfers",
+  "description": "Airport transfers, private rides and tours across Brisbane and the Gold Coast, Queensland. Fixed airport fares, instant online fare estimates, standard SUV and premium Mercedes Vito 8-seater vehicles.",
+  "telephone": "example",
+  "email": "your email",
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "City", "name": "Brisbane" },
+    { "@type": "City", "name": "Gold Coast" }
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" },
+  "openingHours": "Mo-Su 00:00-23:59"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Are your fares GST inclusive?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every fare shown on this website includes 10% Australian GST. Your booking confirmation shows the GST component of the total." } },
+    { "@type": "Question", "name": "Do you provide child seats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — infant capsules, child seats and booster seats are available for a small fee per seat. Select the seats you need when getting your fare estimate." } },
+    { "@type": "Question", "name": "What if my flight is delayed?", "acceptedAnswer": { "@type": "Answer", "text": "Add your flight number when booking. We track arriving flights and adjust your pick-up time at no extra cost for standard flight delays." } },
+    { "@type": "Question", "name": "Do you offer fixed airport fares?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Popular routes such as Brisbane Airport to the CBD and Gold Coast Airport to Surfers Paradise have fixed fares for both standard and premium vehicles." } },
+    { "@type": "Question", "name": "How do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "Pay by card online, by bank transfer/PayID, or cash to the driver. A deposit can secure airport bookings in advance." } },
+    { "@type": "Question", "name": "How do I change or cancel a booking?", "acceptedAnswer": { "@type": "Answer", "text": "Message us on WhatsApp with your booking reference. Cancellations made more than 12 hours before pick-up are free of charge." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="demo-ribbon">
+  Prototype preview — contact details, fares &amp; rates shown are placeholders and can be edited by the owner in the <a href="admin.html">admin panel</a>.
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">T</span>
+      <span class="logo-text">
+        <span class="name" id="hdr-name">Transportation &amp; Transfers</span><br>
+        <span class="tag">Brisbane · Gold Coast</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#fare">Fare Estimate</a>
+      <a href="#vehicles">Vehicles</a>
+      <a href="#fixed">Fixed Fares</a>
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-phone" id="hdr-phone" href="#">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span class="phone-text" id="hdr-phone-text">example</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO + BOOKING WIDGET ============ -->
+<section class="hero" style="padding:70px 0 80px">
+  <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+  <div class="container">
+    <div>
+      <span class="eyebrow">Airport Transfers · Private Rides · Tours</span>
+      <h1>Brisbane &amp; Gold Coast transfers, <span class="accent">done properly.</span></h1>
+      <p class="lead">
+        Enter your pick-up and drop-off, see your estimated fare instantly, choose your vehicle
+        and book in under a minute. Professional drivers, fixed airport fares, and every price includes GST.
+      </p>
+      <div class="hero-points">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Fixed airport fares</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> GST included</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Flight tracking</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Child seats available</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> WhatsApp booking support</span>
+      </div>
+      <a class="btn btn-gold btn-lg" href="#fare">Get an instant fare estimate ↓</a>
+    </div>
+
+    <div class="widget-card" id="fare">
+      <h3>Book your ride</h3>
+      <p class="widget-sub">Search real addresses and we'll calculate distance, travel time and your fare.</p>
+
+      <div class="field ac-wrap">
+        <label for="pickup-input">Pick-up location</label>
+        <input id="pickup-input" type="text" placeholder="e.g. Brisbane Airport, hotel or street address…" autocomplete="off">
+        <div class="ac-list" id="pickup-list"></div>
+      </div>
+
+      <div class="swap-row">
+        <button class="swap-btn" id="swap-btn" title="Swap pick-up and drop-off" aria-label="Swap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 4v13m0 0-3.5-3.5M7 17l3.5-3.5M17 20V7m0 0 3.5 3.5M17 7l-3.5 3.5"/></svg>
+        </button>
+      </div>
+
+      <div class="field ac-wrap">
+        <label for="dropoff-input">Drop-off location</label>
+        <input id="dropoff-input" type="text" placeholder="e.g. Surfers Paradise, office or street address…" autocomplete="off">
+        <div class="ac-list" id="dropoff-list"></div>
+      </div>
+
+      <div class="widget-grid-2">
+        <div class="field">
+          <label for="trip-date">Date</label>
+          <input type="date" id="trip-date">
+        </div>
+        <div class="field">
+          <label for="trip-time">Pick-up time</label>
+          <input type="time" id="trip-time">
+        </div>
+      </div>
+      <div class="widget-grid-2">
+        <div class="field">
+          <label for="trip-pax">Passengers</label>
+          <select id="trip-pax"></select>
+        </div>
+        <div class="field">
+          <label for="trip-bags">Luggage (pieces)</label>
+          <select id="trip-bags"></select>
+        </div>
+      </div>
+
+      <button class="btn btn-navy btn-lg" id="estimate-btn" style="width:100%" disabled>
+        Calculate fare estimate
+      </button>
+      <p class="map-note" style="margin:8px 0 0">Estimates are based on the quickest driving route and current rates (GST included).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results-section" style="display:none; padding-top:44px">
+  <div class="container">
+    <span class="eyebrow">Your trip</span>
+    <h2>Fare estimate</h2>
+    <div class="route-summary" id="route-summary"></div>
+    <div id="map" aria-label="Trip route map"></div>
+    <div class="vehicle-cards" id="vehicle-cards"></div>
+    <div class="extras-block">
+      <h4>Extras &amp; charges <span style="font-weight:400;color:var(--muted);font-size:.8rem">(tolls, child seats, meet &amp; greet…)</span></h4>
+      <div id="extras-list"></div>
+    </div>
+    <p style="margin-top:16px">
+      <button class="btn btn-gold btn-lg" id="proceed-btn">Continue to booking →</button>
+    </p>
+  </div>
+</section>
+
+<!-- ============ BOOKING FORM ============ -->
+<section id="book" style="display:none; padding-top:20px">
+  <div class="container">
+    <span class="eyebrow">Final step</span>
+    <h2>Complete your booking</h2>
+    <div class="grid-2">
+      <div>
+        <div class="booking-summary" id="booking-summary"></div>
+        <form id="booking-form">
+          <div class="widget-grid-2">
+            <div class="field"><label for="b-name">Full name *</label><input type="text" id="b-name" required></div>
+            <div class="field"><label for="b-phone">Mobile number *</label><input type="tel" id="b-phone" required placeholder="04xx xxx xxx"></div>
+          </div>
+          <div class="field"><label for="b-email">Email address *</label><input type="email" id="b-email" required placeholder="you@email.com"></div>
+          <div class="widget-grid-2">
+            <div class="field"><label for="b-pax">Passengers</label><select id="b-pax"></select></div>
+            <div class="field"><label for="b-bags">Luggage (pieces)</label><select id="b-bags"></select></div>
+          </div>
+          <div class="field"><label for="b-flight">Flight number <span style="font-weight:400;text-transform:none">(optional — for airport pick-ups, we track delays)</span></label><input type="text" id="b-flight" placeholder="e.g. VA772 or QF54"></div>
+          <div class="field"><label for="b-requests">Special requests <span style="font-weight:400;text-transform:none">(optional)</span></label><textarea id="b-requests" rows="3" placeholder="e.g. wheelchair access, extra stop, preferred route…"></textarea></div>
+          <button type="submit" class="btn btn-gold btn-lg" style="width:100%">Confirm booking</button>
+          <p class="map-note" style="margin-top:8px">No payment is taken yet — you can pay a deposit online or pay the driver directly. All fares include GST.</p>
+        </form>
+      </div>
+      <div>
+        <div class="card"><div class="card-body">
+          <h3 style="font-size:1.05rem;margin-bottom:12px">What happens next?</h3>
+          <ul class="spec-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> You receive an instant confirmation with your booking reference.</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Send your booking straight to our team on WhatsApp with one tap.</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> We email you a receipt (GST itemised) and confirm your driver.</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Reminder message before your pick-up time.</li>
+          </ul>
+        </div></div>
+        <div class="card" style="margin-top:18px"><div class="card-body">
+          <h3 style="font-size:1.05rem;margin-bottom:10px">Payment options</h3>
+          <div class="chips">
+            <span class="chip">Card online (deposit)</span>
+            <span class="chip">PayID / bank transfer</span>
+            <span class="chip">Cash to driver</span>
+            <span class="chip">Corporate invoicing</span>
+          </div>
+          <p class="price-note">All prices include 10% GST. Online card payments are available for advance bookings and deposits.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VEHICLES ============ -->
+<section id="vehicles">
+  <div class="container">
+    <span class="eyebrow">Our fleet</span>
+    <h2>Choose the right vehicle for your trip</h2>
+    <p class="section-sub">Every vehicle is licensed, insured and presented spotless. Select your vehicle when booking — the fare calculator prices each one automatically.</p>
+    <div class="grid-2 vehicle-showcase">
+      <div class="card">
+        <img src="assets/img/standard-suv.jpg" alt="Standard Haval SUV for Brisbane and Gold Coast transfers">
+        <div class="card-body">
+          <h3>Standard — Haval SUV</h3>
+          <p style="color:var(--muted);font-size:.9rem">A comfortable, modern SUV for solo travellers, couples and small groups with standard luggage.</p>
+          <ul class="spec-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Up to 4 passengers</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17 6h-2V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v2H7c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2h2v2h-2V4z"/></svg> 3 large bags</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Air-conditioned, bottled water</li>
+          </ul>
+          <p class="price-note">Best for: airport transfers, city rides, 1–4 people.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/img/premium-vito.jpg" alt="Premium Mercedes Vito 8-seater people mover">
+        <div class="card-body">
+          <h3>Premium — Mercedes Vito 8-Seater</h3>
+          <p style="color:var(--muted);font-size:.9rem">A luxury people mover with room for the whole group, sports teams, families and extra luggage.</p>
+          <ul class="spec-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Up to 8 passengers</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17 6h-2V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v2H7c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2h2v2h-2V4z"/></svg> 8 large bags</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Leather interior, extra legroom</li>
+          </ul>
+          <p class="price-note">Best for: families, groups, corporate transfers, VIP arrivals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIXED FARES ============ -->
+<section id="fixed" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">Fixed airport fares</span>
+    <h2>No meters, no surprises</h2>
+    <p class="section-sub">Popular airport routes have guaranteed fixed fares in both vehicle classes — agreed before you travel, GST included. Toll roads billed at cost if applicable.</p>
+    <div class="fare-table-wrap">
+      <table class="fare-table">
+        <thead><tr><th>Route</th><th>Standard (Haval)</th><th>Premium (Vito 8-seater)</th></tr></thead>
+        <tbody id="fixed-fares-body"></tbody>
+      </table>
+    </div>
+    <p class="price-note">Don't see your route? Get an instant estimate above — fares are calculated automatically from distance and travel time.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <span class="eyebrow">What we do</span>
+    <h2>Airport transfers, private rides &amp; tours</h2>
+    <p class="section-sub">One trusted local operator for everything from a 6am flight run to a full-day hinterland tour.</p>
+    <div class="grid-3">
+      <div class="card"><div class="card-body">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div>
+        <h3 style="font-size:1.05rem">Airport transfers</h3>
+        <p style="color:var(--muted);font-size:.9rem">Brisbane (BNE) and Gold Coast (OOL) airports, 24/7. We track your flight, meet you at arrivals with a name board, and help with luggage. Fixed fares on popular routes.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 6c-.2-.6-.8-1-1.4-1h-11c-.7 0-1.2.4-1.4 1L3 12v8c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h12v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-8l-2.1-6zM6.5 16c-.8 0-1.5-.7-1.5-1.5S5.7 13 6.5 13s1.5.7 1.5 1.5S7.3 16 6.5 16zm11 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+        <h3 style="font-size:1.05rem">Private rides &amp; point-to-point</h3>
+        <p style="color:var(--muted);font-size:.9rem">Door-to-door rides across Brisbane and the Gold Coast — dinners, meetings, events at Suncorp or the Gabba, weddings, cruise terminal transfers and interstate runs to Byron Bay.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+        <h3 style="font-size:1.05rem">Tours &amp; day trips</h3>
+        <p style="color:var(--muted);font-size:.9rem">Brisbane city tours, Gold Coast highlights, Tamborine Mountain wineries, Springbrook waterfalls, theme parks and hinterland adventures — custom itineraries, comfortable vehicles, local drivers who know the spots.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">How it works</span>
+    <h2>Booked in under a minute</h2>
+    <div class="grid-4" style="margin-top:26px">
+      <div class="step-card"><div class="step-num">1</div><h3 style="font-size:1rem">Enter locations</h3><p style="color:var(--muted);font-size:.88rem">Search your pick-up and drop-off — real addresses, airports, hotels and suburbs.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h3 style="font-size:1rem">See your fare</h3><p style="color:var(--muted);font-size:.88rem">Distance and travel time are calculated automatically; your fare is shown before you book.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h3 style="font-size:1rem">Pick your vehicle</h3><p style="color:var(--muted);font-size:.88rem">Standard SUV or premium 8-seater, plus child seats, tolls and meet &amp; greet.</p></div>
+      <div class="step-card"><div class="step-num">4</div><h3 style="font-size:1rem">Confirm &amp; relax</h3><p style="color:var(--muted);font-size:.88rem">Instant confirmation, WhatsApp support and a reminder before pick-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREAS ============ -->
+<section id="areas">
+  <div class="container">
+    <span class="eyebrow">Service area</span>
+    <h2>Where we operate</h2>
+    <p class="section-sub">Based in Brisbane, covering the greater Brisbane region, the entire Gold Coast and popular day-trip destinations.</p>
+    <div class="chips" id="area-chips"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="container">
+    <span class="eyebrow">Good to know</span>
+    <h2>Frequently asked questions</h2>
+    <div style="max-width:760px;margin-top:24px">
+      <div class="faq-item"><h3>Are your fares GST inclusive?</h3><p>Yes — every fare shown on this website includes 10% Australian GST. Your confirmation shows the GST component of the total.</p></div>
+      <div class="faq-item"><h3>Do you provide child seats?</h3><p>Yes — infant capsules, child seats and booster seats are available for a small fee per seat. Add them when calculating your fare.</p></div>
+      <div class="faq-item"><h3>What if my flight is delayed?</h3><p>Add your flight number when booking. We track arriving flights and adjust your pick-up time at no extra cost for standard airline delays.</p></div>
+      <div class="faq-item"><h3>Do you offer fixed airport fares?</h3><p>Yes. Popular routes like Brisbane Airport ↔ CBD and Gold Coast Airport ↔ Surfers Paradise have guaranteed fixed fares in both vehicle classes.</p></div>
+      <div class="faq-item"><h3>How do I pay?</h3><p>Pay by card online (deposits available for advance bookings), PayID/bank transfer, or cash to the driver. Corporate invoicing available.</p></div>
+      <div class="faq-item"><h3>How do I change or cancel a booking?</h3><p>Message us on WhatsApp with your booking reference. Cancellations more than 12 hours before pick-up are free of charge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact-band">
+  <div class="container">
+    <span class="eyebrow">Talk to us</span>
+    <h2>Real people, local to Brisbane &amp; the Gold Coast</h2>
+    <p style="color:#cdd7ea;max-width:560px">Questions about a quote, a custom tour or a corporate account? Call, WhatsApp or email — we usually reply within minutes.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="ci-label">Call or text</div>
+        <a id="ct-phone" href="#">example</a>
+        <div class="ci-sub">24/7 for airport pick-ups</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">WhatsApp</div>
+        <a id="ct-wa" href="#" target="_blank" rel="noopener">Chat with us now</a>
+        <div class="ci-sub">Fastest way to confirm a booking</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Email</div>
+        <a id="ct-email">your email</a>
+        <div class="ci-sub">Quotes, invoices &amp; corporate accounts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 id="ft-name">Transportation &amp; Transfers</h4>
+        <p>Family-run airport transfers, private rides and tours serving Brisbane, the Gold Coast and everywhere in between. Fixed airport fares, GST-inclusive pricing, and drivers who care.</p>
+        <p style="margin-top:8px">ABN: <span id="ft-abn">example</span></p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <a href="#fare">Fare estimate</a>
+        <a href="#vehicles">Our vehicles</a>
+        <a href="#fixed">Fixed airport fares</a>
+        <a href="#services">Services &amp; tours</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Popular transfers</h4>
+        <a href="#fare">Brisbane Airport → CBD</a>
+        <a href="#fare">Brisbane Airport → Gold Coast</a>
+        <a href="#fare">Gold Coast Airport → Surfers Paradise</a>
+        <a href="#fare">Gold Coast Airport → Brisbane</a>
+        <a href="#fare">Brisbane → Byron Bay</a>
+      </div>
+    </div>
+    <div class="footer-seo">
+      Transportation &amp; Transfers provides taxi-style airport transfers, private chauffeur rides and day tours across South East Queensland — including Brisbane Airport (BNE) and Gold Coast Airport (OOL) transfers, Brisbane city rides, Gold Coast transfers to Surfers Paradise, Broadbeach, Burleigh Heads and Coolangatta, and tours to Tamborine Mountain, Springbrook and the theme parks.
+      <br><br>© <span id="ft-year"></span> Transportation &amp; Transfers. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="#fff"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.2 7L4 29l7.3-2.1c1.9 1 4 1.6 6.2 1.6h.1c6.6 0 12-5.3 12-11.9S22.6 3 16 3zm6.6 16.8c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.2-3.8-.8-3.2-1.3-5.3-4.6-5.5-4.8-.2-.2-1.3-1.8-1.3-3.4s.8-2.4 1.1-2.7c.3-.3.6-.4.9-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.5.6c-.2.2-.4.4-.2.7.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1l1.2-1.4c.2-.3.5-.2.8-.1l2.4 1.1c.3.2.6.3.6.4.1.1.1.7-.2 1.3z"/></svg>
+</a>
+
+<!-- ============ CONFIRMATION MODAL ============ -->
+<div class="modal-backdrop" id="confirm-modal">
+  <div class="modal">
+    <h3>🎉 Booking received!</h3>
+    <span class="ref-pill" id="cm-ref">REF</span>
+    <p style="color:var(--muted);font-size:.9rem">Thanks <b id="cm-name"></b> — here's your booking summary. Keep your reference handy.</p>
+    <div class="summary-box" id="cm-summary"></div>
+    <p style="font-size:.85rem;color:var(--muted)" id="cm-notify-note">📧 A confirmation email has been sent to <b id="cm-email"></b>, and our team has been notified. You'll get a reminder before pick-up.</p>
+    <div class="modal-actions">
+      <a class="btn btn-whatsapp btn-lg" id="cm-whatsapp" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="#fff"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.2 7L4 29l7.3-2.1c1.9 1 4 1.6 6.2 1.6h.1c6.6 0 12-5.3 12-11.9S22.6 3 16 3zm6.6 16.8c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.2-3.8-.8-3.2-1.3-5.3-4.6-5.5-4.8-.2-.2-1.3-1.8-1.3-3.4s.8-2.4 1.1-2.7c.3-.3.6-.4.9-.4h.6c.2 0 .5-.1.7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.5.6c-.2.2-.4.4-.2.7.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1l1.2-1.4c.2-.3.5-.2.8-.1l2.4 1.1c.3.2.6.3.6.4.1.1.1.7-.2 1.3z"/></svg>
+        Send booking details on WhatsApp
+      </a>
+      <a class="btn btn-outline" id="cm-email-btn" href="#">Email us the booking instead</a>
+      <button class="btn btn-navy" id="cm-deposit-btn">Pay 20% deposit online</button>
+      <button class="btn btn-sm" id="cm-close" style="background:#eef1f6;color:var(--navy)">Close</button>
+    </div>
+    <p class="fine" id="cm-deposit-note">Deposits secure advance bookings and can be paid by card. The balance is payable to your driver by cash or card.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onerror="window.__leafletFailed=true"></script>
+<script src="assets/core.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
